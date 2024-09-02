@@ -1,0 +1,90 @@
+{
+  "name": "Test Architecture",
+  "description": "Here can be your description",
+  "components": [
+    {
+      "name": "Core",
+      "packages": [
+      ],
+      "components": [
+        {
+          "name": "Helper",
+          "packages": [
+            "..helper.."
+          ],
+          "onlyAccessTo": [
+            "Transformers"
+          ],
+          "onlyDependenciesTo": [
+            "Architecture"
+          ]
+        },
+        {
+          "name": "Transformers",
+          "packages": [
+            "..transformer.."
+          ],
+          "onlyAccessTo": [
+            "Architecture"
+          ],
+          "onlyDependenciesTo": [
+            "Annotations"
+          ]
+        },
+        {
+          "name": "Executors",
+          "packages": [
+            "..executors.."
+          ],
+          "onlyAccessTo": [
+            "Helper"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Access",
+      "packages": [
+      ],
+      "components": [
+        {
+          "name": "Mojos",
+          "packages": [
+            "..mojos.."
+          ],
+          "onlyAccessTo": [
+            "Executors"
+          ]
+        },
+        {
+          "name": "AsciProcessors",
+          "packages": [
+            "..ascidoc.."
+          ],
+          "onlyAccessTo": [
+            "Executors"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Structure",
+      "packages": [
+      ],
+      "components": [
+        {
+          "name": "Architecture",
+          "packages": [
+            "..GenericArchitecture.."
+          ]
+        },
+        {
+          "name": "Annotations",
+          "packages": [
+            "..annotations.."
+          ]
+        }
+      ]
+    }
+  ]
+}
